@@ -86,8 +86,14 @@ body {
   align-items: center;
   gap: 8px;
   background: #ffffff;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  transition: box-shadow 0.15s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
 }
 
 .task-item--completed .task-item__title {
@@ -121,14 +127,21 @@ body {
   color: #1d4ed8;
 }
 
+.task-item__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+}
+
 .task-item__assignee {
-  font-size: 13px;
-  color: #4b5563;
+  font-size: 12px;
+  color: #6b7280;
 }
 
 .task-item__due-date {
-  font-size: 13px;
-  color: #4b5563;
+  font-size: 12px;
+  color: #6b7280;
 }
 
 .task-item__overdue-badge {
@@ -145,4 +158,10 @@ body {
   color: #dc2626;
   cursor: pointer;
   font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.task-item__remove:hover {
+  background: #fee2e2;
 }

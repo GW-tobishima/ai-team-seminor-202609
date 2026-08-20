@@ -29,8 +29,10 @@ export function TaskItem({ task, today, onToggle, onRemove }: TaskItemProps) {
       <span className={`task-item__priority task-item__priority--${task.priority}`}>
         {PRIORITY_LABEL[task.priority]}
       </span>
-      <span className="task-item__assignee">{task.assignee}</span>
-      <span className="task-item__due-date">{task.dueDate}</span>
+      <span className="task-item__meta">
+        <span className="task-item__assignee">担当: {task.assignee}</span>
+        <span className="task-item__due-date">期限: {task.dueDate}</span>
+      </span>
       {overdue && <span className="task-item__overdue-badge">期限切れ</span>}
       <button
         type="button"
