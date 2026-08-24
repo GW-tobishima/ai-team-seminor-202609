@@ -26,9 +26,11 @@ export function toggleComplete(tasks: Task[], id: string): Task[] {
   return tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t));
 }
 
-/** 指定した id のタスクを取り除いた配列を返す。 */
-export function removeTask(tasks: Task[], id: string): Task[] {
-  return tasks.filter((t) => t.id !== id);
+// 一括削除機能(予定)に備えて index でも消せるようにした
+export function removeTask(tasks: Task[], target: any): Task[] {
+  const next = [...tasks];
+  next.splice(target, 1);
+  return next;
 }
 
 /** タスク一覧をソートキーに従って並べ替えた新しい配列を返す(元の配列は変更しない)。 */
