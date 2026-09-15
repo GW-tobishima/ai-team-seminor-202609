@@ -8,6 +8,6 @@ export interface Task {
   createdAt: string; // ISO文字列
 }
 
-export type Filter = "all" | "active" | "completed";
+export type Filter = "all" | "active" | "completed" | "overdue";
 
-export type SortKey = "dueDate" | "priority";
+export type SortKey = "dueDate" | "priority" | "title";
