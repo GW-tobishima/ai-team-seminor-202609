@@ -80,8 +80,6 @@ export function getDueDateInfo(dueDate: string, today: string): {
     label = `あと${diffDays}日`;
   } else if (diffDays > 7) {
     label = dueDate;
-  } else if (diffDays === -1) {
-    label = "昨日 (1日超過)";
   } else {
     label = `${Math.abs(diffDays)}日超過`;
   }

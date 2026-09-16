@@ -117,7 +117,7 @@ export function TaskItem({ task, today, onToggle, onRemove }: TaskItemProps) {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="task-item__meta-icon">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span className="task-item__due-text">{dueInfo.label}</span>
+            <span className="task-item__due-text">期限: {task.dueDate}</span>
           </div>
 
           {!task.completed && dueInfo.isOverdue && (
@@ -129,7 +129,25 @@ export function TaskItem({ task, today, onToggle, onRemove }: TaskItemProps) {
                   clipRule="evenodd"
                 />
               </svg>
-              期限超過
+              {dueInfo.label}
+            </span>
+          )}
+
+          {!task.completed && !dueInfo.isOverdue && dueInfo.isToday && (
+            <span className="task-item__today-badge">
+              今日締切
+            </span>
+          )}
+
+          {!task.completed && !dueInfo.isOverdue && dueInfo.isTomorrow && (
+            <span className="task-item__soon-badge">
+              明日締切
+            </span>
+          )}
+
+          {!task.completed && !dueInfo.isOverdue && dueInfo.diffDays > 1 && dueInfo.diffDays <= 7 && (
+            <span className="task-item__soon-badge">
+              あと{dueInfo.diffDays}日
             </span>
           )}
         </div>
